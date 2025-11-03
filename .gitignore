@@ -23,3 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 *.vsidx
 package-lock.json
+/.vs
+package-lock.json

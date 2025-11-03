@@ -1,3 +1,4 @@
+//Original Imports
 import './App.css';
 import { useEffect, useRef } from "react";
 import { StrudelMirror } from '@strudel/codemirror';
@@ -10,11 +11,13 @@ import { registerSoundfonts } from '@strudel/soundfonts';
 import { stranger_tune } from './tunes';
 import console_monkey_patch, { getD3Data } from './console-monkey-patch';
 
+//Utils Imports
+import handleD3Data from './utils/handleD3Data';
+
+//Component Imports
+
 let globalEditor = null;
 
-const handleD3Data = (event) => {
-    console.log(event.detail);
-};
 
 export function SetupButtons() {
 

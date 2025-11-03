@@ -1,6 +1,6 @@
 //Original Imports
 import './App.css';
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { StrudelMirror } from '@strudel/codemirror';
 import { evalScope } from '@strudel/core';
 import { drawPianoroll } from '@strudel/draw';
@@ -17,31 +17,19 @@ import Proc from './utils/buttonLogic/Proc';
 import ProcAndPlay from './utils/buttonLogic/ProcAndPlay';
 
 //Component Imports
+import PlayButton from './components/PlayButton';
+import StopButton from './components/StopButton';
+import ProcessButton from './components/ProcessButton';
+import ProcAndPlayButton from './components/ProcAndPlayButton';
 
-let globalEditor = null;
-
-
-export function SetupButtons() {
-
-    document.getElementById('play').addEventListener('click', () => globalEditor.evaluate());
-    document.getElementById('stop').addEventListener('click', () => globalEditor.stop());
-    document.getElementById('process').addEventListener('click', () => {
-        Proc(globalEditor)
-    }
-    )
-    document.getElementById('process_play').addEventListener('click', () => {
-        if (globalEditor != null) {
-            Proc(globalEditor)
-            globalEditor.evaluate()
-        }
-    }
-    )
-}
-
+//global variable changed in favour of useState so that setupButtons are redundant and can be removed
+//let globalEditor = null;
 
 export default function StrudelDemo() {
 
-const hasRun = useRef(false);
+    const hasRun = useRef(false);
+    //initialise useState variable
+    const [globalEditor, setEditor] = useState(null);
 
 useEffect(() => {
 
@@ -50,13 +38,14 @@ useEffect(() => {
         console_monkey_patch();
         hasRun.current = true;
         //Code copied from example: https://codeberg.org/uzu/strudel/src/branch/main/examples/codemirror-repl
-            //init canvas
             const canvas = document.getElementById('roll');
             canvas.width = canvas.width * 2;
             canvas.height = canvas.height * 2;
             const drawContext = canvas.getContext('2d');
             const drawTime = [-2, 2]; // time window of drawn haps
-            globalEditor = new StrudelMirror({
+
+                //replace global editor with use state equivalent
+                const editor = new StrudelMirror({
                 defaultOutput: webaudioOutput,
                 getTime: () => getAudioContext().currentTime,
                 transpiler,
@@ -74,11 +63,14 @@ useEffect(() => {
                     );
                     await Promise.all([loadModules, registerSynthSounds(), registerSoundfonts()]);
                 },
-            });
+                });
+
+        //feed intialised editor variable into useState
+        //cann now use "globalEditor"
+        setEditor(editor);
             
         document.getElementById('proc').value = stranger_tune
-        SetupButtons()
-        Proc(globalEditor)
+        Proc(editor)
     }
 
 }, []);
@@ -98,11 +90,11 @@ return (
                     <div className="col-md-4">
 
                         <nav>
-                            <button id="process" className="btn btn-outline-primary">Preprocess</button>
-                            <button id="process_play" className="btn btn-outline-primary">Proc & Play</button>
+                            <ProcessButton globalEditor={globalEditor} />
+                            <ProcAndPlayButton globalEditor={globalEditor} />
                             <br />
-                            <button id="play" className="btn btn-outline-primary">Play</button>
-                            <button id="stop" className="btn btn-outline-primary">Stop</button>
+                            <PlayButton globalEditor={globalEditor}/>
+                            <StopButton globalEditor={globalEditor} />
                         </nav>
                     </div>
                 </div>

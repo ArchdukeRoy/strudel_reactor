@@ -1,5 +1,6 @@
 import ProcessText from "./ProcessText";
 
+//Proc moved to its own class that accepts the globalEditor param, functions and uses logic same as the original
 function Proc(globalEditor) {
         let proc_text = document.getElementById('proc').value;
         let proc_text_replaced = proc_text.replaceAll('<p1_Radio>', ProcessText);

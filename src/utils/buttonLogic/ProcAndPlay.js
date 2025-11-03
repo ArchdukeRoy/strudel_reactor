@@ -1,10 +1,17 @@
 import Proc from "./Proc";
 
+//ProcAndPlay moved to its own class that accepts the globalEditor param, functions and uses logic same as the original
 function ProcAndPlay(globalEditor) {
-    if (globalEditor != null && globalEditor.repl.state.started == true) {
-        console.log(globalEditor)
+    // PLACEHOLDER: && (globalEditor.repl.state.started === false)) how to check if something is running
+    if (globalEditor != null) {
+        globalEditor.stop();
         Proc(globalEditor)
         globalEditor.evaluate();
+    } else if ((globalEditor == null) && (globalEditor.repl.state.started == true)) {
+        globalEditor.stop();
+        Proc(globalEditor)
+    } else {
+        Proc(globalEditor)
     }
 }
 

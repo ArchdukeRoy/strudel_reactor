@@ -78,6 +78,13 @@ useEffect(() => {
 
 return (
     <div>
+
+        <div className="App container">
+            <div className="bg-light py-1 mb-2">
+            <h2 className="text-center">Example Application</h2>
+            </div>
+        </div>
+
         <h2>Strudel Demo</h2>
         <main>
 

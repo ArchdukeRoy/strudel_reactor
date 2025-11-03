@@ -12,7 +12,9 @@ import { stranger_tune } from './tunes';
 import console_monkey_patch, { getD3Data } from './console-monkey-patch';
 
 //Utils Imports
-import handleD3Data from './utils/handleD3Data';
+import handleD3Data from './utils/buttonLogic/handleD3Data';
+import Proc from './utils/buttonLogic/Proc';
+import ProcAndPlay from './utils/buttonLogic/ProcAndPlay';
 
 //Component Imports
 
@@ -24,45 +26,18 @@ export function SetupButtons() {
     document.getElementById('play').addEventListener('click', () => globalEditor.evaluate());
     document.getElementById('stop').addEventListener('click', () => globalEditor.stop());
     document.getElementById('process').addEventListener('click', () => {
-        Proc()
+        Proc(globalEditor)
     }
     )
     document.getElementById('process_play').addEventListener('click', () => {
         if (globalEditor != null) {
-            Proc()
+            Proc(globalEditor)
             globalEditor.evaluate()
         }
     }
     )
 }
 
-
-
-export function ProcAndPlay() {
-    if (globalEditor != null && globalEditor.repl.state.started == true) {
-        console.log(globalEditor)
-        Proc()
-        globalEditor.evaluate();
-    }
-}
-
-export function Proc() {
-
-    let proc_text = document.getElementById('proc').value
-    let proc_text_replaced = proc_text.replaceAll('<p1_Radio>', ProcessText);
-    ProcessText(proc_text);
-    globalEditor.setCode(proc_text_replaced)
-}
-
-export function ProcessText(match, ...args) {
-
-    let replace = ""
-    if (document.getElementById('flexRadioDefault2').checked) {
-        replace = "_"
-    }
-
-    return replace
-}
 
 export default function StrudelDemo() {
 
@@ -103,7 +78,7 @@ useEffect(() => {
             
         document.getElementById('proc').value = stranger_tune
         SetupButtons()
-        Proc()
+        Proc(globalEditor)
     }
 
 }, []);

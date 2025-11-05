@@ -1,4 +1,4 @@
-import ProcAndPlay from '../utils/buttonLogic/ProcAndPlay';
+import ProcAndPlay from '../../utils/buttonLogic/ProcAndPlay';
 
 const ProcessButton = ({ globalEditor }) => {
     return (

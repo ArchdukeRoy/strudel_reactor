@@ -1,4 +1,4 @@
-import Proc from '../utils/buttonLogic/Proc';
+import Proc from '../../utils/buttonLogic/Proc';
 
 const ProcessButton = ({ globalEditor }) => {
     return (

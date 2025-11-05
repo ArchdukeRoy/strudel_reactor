@@ -83,17 +83,14 @@ useEffect(() => {
 
 return (
     <div>
-
         <NavBar/>
-        
-
         <main>
             <div className="container-fluid">
                 <div className="row g-0">
-                    {/*process*/}
+                    {/*preprocess*/}
                     <div className="col-md-6 d-flex flex-column border-end">
                         <div className="bg-light border-bottom p-2 d-flex justify-content-between align-items-center">
-                            <span className="fw-bold">Pre-Process text:</span>
+                            <img src="/iconImages/pre.png" alt="" style={{ height: "35px" }}/>
                             <nav className="d-flex gap-1">
                                 <ProcessButton globalEditor={globalEditor} />
                                 <ProcAndPlayButton globalEditor={globalEditor} />
@@ -106,7 +103,7 @@ return (
                     {/*output*/}
                     <div className="col-md-6 d-flex flex-column">
                         <div className="bg-light border-bottom p-2 d-flex justify-content-between align-items-center">
-                            <span className="fw-bold">Output:</span>
+                            <img src="/iconImages/out.png" alt="" style={{ height: "35px" }}/>
                             <nav className="d-flex gap-1">
                                 <PlayButton globalEditor={globalEditor} />
                                 <StopButton globalEditor={globalEditor} />
@@ -135,17 +132,6 @@ return (
                     <div className="d-flex align-items-center gap-3" style={{ minWidth: '180px' }}>
                         <label htmlFor="volumeRange" className="form-label mb-0">Volume: </label>
                         <input type="range" className="form-range" min="0" max="100" id="volumeRange" style={{ height: '30px' }} />
-                    </div>
-                    {/*Speed*/}
-                    <div className="dropdown">
-                        <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Speed</button>
-                        <ul className="dropdown-menu">
-                            <li><button className="dropdown-item" type="button">0.50x</button></li>
-                            <li><button className="dropdown-item" type="button">0.75x</button></li>
-                            <li><button className="dropdown-item" type="button">1.00x</button></li>
-                            <li><button className="dropdown-item" type="button">1.50x</button></li>
-                            <li><button className="dropdown-item" type="button">1.75x</button></li>
-                        </ul>
                     </div>
                     {/*Instruments*/}
                     <div className="dropdown">

@@ -2,9 +2,9 @@ import SettingsButton from './settingsButton';
 
 const NavBar = ({ }) => {
     return (
-        <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+        <nav className="navbar navbar-expand-lg sticky-top" style={{ backgroundColor: "#222222" }}>
             <div className="container-fluid d-flex justify-content-between align-items-center">
-                <h2 className="text-center">Strudel Demo</h2>
+                <img src="/iconImages/logo.png" alt="Logo" style={{ height: "60px" }} />
 
                 <SettingsButton />
 

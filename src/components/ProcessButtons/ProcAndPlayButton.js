@@ -3,7 +3,7 @@ import ProcAndPlay from '../../utils/buttonLogic/ProcAndPlay';
 const ProcessButton = ({ globalEditor }) => {
     return (
         //Setup button replaced by onClick
-        <button className="btn btn-outline-primary" onClick={
+        <button className="btn btn-outline-secondary" onClick={
             //The code from original App.js inserted here:
             () => {
                 if (globalEditor != null) {

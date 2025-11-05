@@ -1,0 +1,15 @@
+import changeVolume from '../../utils/audioBarLogic/volumeLogic';
+import ProcAndPlay from '../../utils/buttonLogic/ProcAndPlay';
+
+const VolumeSlider = ({globalEditor }) => {
+    return (
+        <div className="d-flex align-items-center gap-3" style={{ minWidth: '180px' }}>
+            <label htmlFor="volumeRange" className="form-label mb-0">Volume: </label>
+            <input type="range" className="form-range" min="0" max="100" id="volumeRange" style={{ height: '30px' }} onChange={e => {
+                changeVolume(document.getElementById('proc'), e.target.value / 100);
+                ProcAndPlay(globalEditor)
+            }} />
+        </div>
+    )
+}
+export default VolumeSlider

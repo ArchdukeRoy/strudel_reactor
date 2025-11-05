@@ -19,6 +19,8 @@ import ProcAndPlay from './utils/buttonLogic/ProcAndPlay';
 //Component Imports
 import NavBar from './components/NavBar/navbar'
 
+import VolumeSlider from './components/audioBar/volumeSlider'
+
 import PlayButton from './components/ProcessButtons/PlayButton';
 import StopButton from './components/ProcessButtons/StopButton';
 import ProcessButton from './components/ProcessButtons/ProcessButton';
@@ -33,8 +35,11 @@ export default function StrudelDemo() {
     //initialise useState variable
     const [globalEditor, setEditor] = useState(null);
 
-    //
-    const [cpsValue, setCpsValue] = useState(140); // default BPM
+    //sets default bpm
+    const [cpsValue, setCpsValue] = useState(140);
+
+    //sets default volume
+    const [volume, setVolume] = useState(1);
 
 useEffect(() => {
 
@@ -129,9 +134,8 @@ return (
                         <label className="form-check-label mb-0" htmlFor="flexRadioDefault2">p1: HUSH</label>
                     </div>
                     {/*Volume*/}
-                    <div className="d-flex align-items-center gap-3" style={{ minWidth: '180px' }}>
-                        <label htmlFor="volumeRange" className="form-label mb-0">Volume: </label>
-                        <input type="range" className="form-range" min="0" max="100" id="volumeRange" style={{ height: '30px' }} />
+                        <VolumeSlider globalEditor={globalEditor}/>
+                    <div>
                     </div>
                     {/*Instruments*/}
                     <div className="dropdown">

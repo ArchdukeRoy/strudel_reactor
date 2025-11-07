@@ -20,6 +20,8 @@ import ProcAndPlay from './utils/buttonLogic/ProcAndPlay';
 import NavBar from './components/NavBar/navbar'
 
 import VolumeSlider from './components/audioBar/volumeSlider'
+import InstrumentsDropdown from './components/audioBar/InstrumentsDropdown'
+import BPM from './components/audioBar/BPM'
 
 import PlayButton from './components/ProcessButtons/PlayButton';
 import StopButton from './components/ProcessButtons/StopButton';
@@ -34,9 +36,6 @@ export default function StrudelDemo() {
     const hasRun = useRef(false);
     //initialise useState variable
     const [globalEditor, setEditor] = useState(null);
-
-    //sets default bpm
-    const [cpsValue, setCpsValue] = useState(140);
 
     //sets default volume
     const [volume, setVolume] = useState(1);
@@ -138,60 +137,9 @@ return (
                     <div>
                     </div>
                     {/*Instruments*/}
-                    <div className="dropdown">
-                        <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Instruments</button>
-                        <ul className="dropdown-menu p-2" style={{ minWidth: '250px' }}>
-                            {/*onClick to stop the according from closing drowdown on click*/}
-                            <div className="accordion accordion-flush" id="accordionFlushExample" onClick={e => e.stopPropagation()}>
-                                <div className="accordion-item">
-                                    <h2 className="accordion-header">
-                                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">Piano</button>
-                                    </h2>
-                                    <div id="flush-collapseOne" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                        <div className="accordion-body">bvhjcvgh</div>
-                                    </div>
-                                </div>
-                                <div className="accordion-item">
-                                    <h2 className="accordion-header">
-                                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">Drums</button>
-                                    </h2>
-                                    <div id="flush-collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                        <div className="accordion-body">bhbgjyhubv</div>
-                                    </div>
-                                </div>
-                                <div className="accordion-item">
-                                    <h2 className="accordion-header">
-                                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">Bass</button>
-                                    </h2>
-                                    <div id="flush-collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                        <div className="accordion-body">jnbjhbh</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </ul>
-                    </div>
+                    <InstrumentsDropdown/>
                     {/*BPM control*/}
-                    <div className="d-flex align-items-center gap-2 mb-2">
-                        <label htmlFor="bpmIn" className="mb-0">BPM:</label>
-                        <input type="number" id="bpmIn" className="form-control" value={cpsValue} onChange={(e) => setCpsValue(Number(e.target.value))} style={{ width: '80px' }} />
-                        <button className="btn btn-outline-dark"
-                            onClick={() => {
-                                //insert  value in pre-process
-                                const textarea = document.getElementById('proc');
-                                //if check to stop errors if pre process is empty
-                                if (textarea) {
-                                    //break process string into lines so can read 
-                                    const lines = textarea.value.split('\n');
-                                    //if a string in the array starts with setcps then replace it with the inputted value
-                                    const newLines = lines.map(line => line.startsWith('setcps') ? `setcps(${cpsValue}/60/4)` : line);
-                                    //put it back to 1 string then feed into preprocess area
-                                    textarea.value = newLines.join('\n');
-                                }
-                            }}>
-                            Update CPS
-                        </button>
-                    </div>
-
+                    <BPM globalEditor={globalEditor} />
                 </div>
             </nav>
             <canvas id="roll"></canvas>

@@ -1,20 +1,18 @@
-function changeVolume(textarea, volume) {
+const changeVolume = (textarea, volume) => {
     if (!textarea) return;
-
-    // Break process string into lines so can read
+    //make text area a list of strings per line
     const lines = textarea.value.split('\n');
-
-    // If a string in the array starts with all(x => x.gain then replace it with the inputted value
+    //if string matches then insert new volume
     const newLines = lines.map(line =>
         line.startsWith('all(x => x.gain') ? `all(x => x.gain(${volume}))` : line
     );
 
-    // If no existing line was replaced, add a new one
+    //if no volume line exists insert in
     if (!lines.some(line => line.startsWith('all(x => x.gain'))) {
         newLines.push(`all(x => x.gain(${volume}))`);
     }
 
-    // Put it back to 1 string then feed into preprocess area
+    //put line back in/new line
     textarea.value = newLines.join('\n');
 }
 

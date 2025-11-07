@@ -6,6 +6,20 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `Ready for Part A`
+UI - layout completed graph to go on the bottom
+
+Volume slider functional: Sliding  the slider will change volume of output accordingly
+Needs to be revised with regex as per volume slider video provided on course website
+
+BPM function: Changing the BPM then hitting update will play the song with the new BPM
+
+TODO - Instrument Dropdown logic and button implementation of each instrument, refactor the p1 and p2 buttons,
+change logic of Process Text, Fix Modal Glitch for settings, save and upload JSON data, implement graph.
+
+Git:
+https://github.com/ArchdukeRoy/strudel_reactor
+
 ### `npm start`
 
 Runs the app in the development mode.\

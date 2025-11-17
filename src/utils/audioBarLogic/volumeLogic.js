@@ -9,7 +9,7 @@ const changeVolume = (textarea, volume) => {
 
     //if no volume line exists insert in
     if (!lines.some(line => line.startsWith('all(x => x.gain'))) {
-        newLines.push(`all(x => x.gain(${volume}))`);
+        newLines.unshift(`all(x => x.gain(${volume}))`);
     }
 
     //put line back in/new line

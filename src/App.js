@@ -29,6 +29,7 @@ import StopButton from './components/ProcessButtons/StopButton';
 import ProcessButton from './components/ProcessButtons/ProcessButton';
 import ProcAndPlayButton from './components/ProcessButtons/ProcAndPlayButton';
 import ClearButton from './components/ProcessButtons/ClearButton';
+import Graph from './components/d3Graph'
 
 //global variable changed in favour of useState so that setupButtons are redundant and can be removed
 //let globalEditor = null;
@@ -133,6 +134,7 @@ return (
                 </div>
             </nav>
             <div style={{ height: '10px', backgroundColor: '#333333' }}></div>
+            <Graph />
             <canvas id="roll"></canvas>
         </main >
     </div >

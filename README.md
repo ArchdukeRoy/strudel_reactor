@@ -1,5 +1,88 @@
 # Getting Started with Create React App
 
+## Base Features
+Proc - process text area into strudel area but does not play
+Proc and Play - Process and plays
+Play - plays sound
+Stop - Stops any sound
+
+## UI featues
+Volume slider - dynamic feedback with numbers changing but does not update until after slider is let go (personal preference)
+Reverb slider - dynamic feedback with numbers changing but does not update until after slider is let go (personal preference)
+BPM Controller - Int user input to enter specied beats per minute
+Sounds Dropdown + Accordian - Select instruments which adds sounds of instruments I have created.
+Sound Visualiser Button - Toggles ._scope() to instruments if they have it to add in built sound visualiser
+
+## SONG
+I created this song using 2 4 chord progressions for instrument. So 8 beats per instrument all synced up with each other.
+A combination of instruments commonly used in a band, as well as double up instruments playing different tunes to help the sound not feel flat.
+Specific combo of song is all my sounds except music as follows:
+
+I would like to apply for bonus marks
+setcps(140/60/4)
+samples('https://raw.githubusercontent.com/Mittans/tidal-drum-machines/main/machines/tidal-drum-machines.json')
+samples('https://raw.githubusercontent.com/tidalcycles/Dirt-Samples/master/strudel.json')
+samples('github:algorave-dave/samples')
+
+
+guitar1:
+note("<[e2, b2, e3] [g2, b2, d3] [a2, e3, a3] [b2, f#3, b3] [e2, b2] [c3, g3] [g2, d3] [d3, a3]>")
+.s('gm_acoustic_guitar_nylon').fast(8)
+.ply("<1 1 1 1 >")
+._scope()
+
+guitar2:
+note("<[f#2, c#3, f#3] [a2, c3, f3] [d2, a2, d3] [e2, g2, b2] [b2, d3, g3] [g2, c3, e3] [c2, e3, g3] [a2, d3, f#3]>")
+.s('gm_electric_guitar_muted')
+.release(0.125).decay("<0.4>")
+.fast(8)
+.ply("<0 0 1 1>")
+._scope()
+
+drums1:
+sound(`
+[bd bd - -] [bd bd bd bd],
+[bd:1 bd:2 bd:3 bd:4] [hh:5 hh:5 hh:7 hh:7]
+`).bank("RolandTR909").room(.2)
+.ply("<0 0 1 1>")
+._scope()
+
+drums2:
+sound(`
+[-  -  -  - ] [-  -  -  - ] [-  -  -  - ] [oh:1 oh:1 oh:1 oh:1],
+[- - - -] [- - - -] [hh hh hh hh] [hh:5 hh:5 hh:5 hh:5],
+[-  -  - -] [- -  -  - ] [cp cp cp cp ] [ - - - -],
+[-  -  - -] [- -  -  - ] [bd bd bd bd ] [ bd bd bd bd],
+[bd:7 bd:7 bd:7 bd:7] [bd:5 bd:6 bd:7 bd:7] [bd:7 bd:7 bd:7 bd:7] [bd:5 bd:6 bd:7 bd:7]
+`).bank("RolandTR808").slow(2)
+.ply("<1 1 0 0>")
+._scope()
+
+bass1:
+note("<[c#2] [c#1] [d1] [e1] [b0] [g1] [c1] [a0]>")
+.s('gm_synth_bass_2').fast(8)
+._scope()
+
+bass2:
+note("<[f1] [f1] [d1] [e1] [b0] [g1] [c1] [a0]>")
+.s('gm_electric_bass_finger').fast(8)
+._scope()
+
+synthBase1:
+sound("bd*2,<pink pink pink brown*2>*8")
+.decay(.04).sustain(0)
+._scope()
+
+_piano1:
+note(`<
+[f#2 a2 c#3 f#3] [e3 c#3 a2 f#2],
+[a2 c#3 e3 a3] [g3 e3 c#3 a2]
+>`)
+.fast(2)
+.s('gm_epiano1')
+.release(0.2)
+._scope()
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

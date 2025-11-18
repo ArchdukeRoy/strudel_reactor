@@ -14,7 +14,7 @@ const Piano1Button = ({ }) => {
                         }}
                     />
                 </div>
-                <span className="input-group-text">Drums set 2</span>
+                <span className="input-group-text">Piano Set 1</span>
             </div>
         </div>
 

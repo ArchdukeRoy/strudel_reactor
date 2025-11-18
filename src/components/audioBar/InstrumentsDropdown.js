@@ -9,7 +9,7 @@ import Piano1Button from './instrumentButtons/piano1Button';
 
 const InstrumentsDropdown = ({ globalEditor }) => {
     return (
-        <div className="dropup">
+        <div className="dropdown">
             <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Sounds</button>
             <ul className="dropdown-menu p-2" style={{ minWidth: '250px' }}>
                 {/*onClick to stop the accordian from closing drowdown on click*/}

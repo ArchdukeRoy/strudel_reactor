@@ -1,5 +1,17 @@
 # Getting Started with Create React App
 
+## File Heirachy
+Components - holds functions which returns HTMLS (the display)
+Utils - Holds logic for components to call
+
+## Install and Rum
+From visual studio "Ctrl + `" to open terminal
+install node, d3 then run:
+
+npm install
+npm install d3
+npm start
+
 ## Base Features
 Proc - process text area into strudel area but does not play
 Proc and Play - Process and plays

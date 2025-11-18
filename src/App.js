@@ -102,7 +102,7 @@ return (
                                 <StopButton globalEditor={globalEditor} />
                             </nav>
                         </div>
-                        <textarea className="form-control flex-grow-1 rounded-0" id="proc" style={{ maxHeight: '400px', overflowY: 'auto', overflowX: 'auto', whiteSpace: 'pre' }}></textarea>
+                        <textarea className="form-control flex-grow-1 rounded-0" id="proc" style={{ maxHeight: '400px', overflowY: 'auto', overflowX: 'auto', whiteSpace: 'pre', caretColor: 'black' }}></textarea>
                     </div>
                     {/*output*/}
                     <div className="col-md-6 d-flex flex-column">
@@ -123,15 +123,6 @@ return (
             <br></br>
             <nav className="navbar" style={{ backgroundColor: '#f0f0f0' }}>
                 <div className="container-fluid d-flex align-items-center gap-3 flex-wrap justify-content-start">
-                    {/*Radio*/}
-                    <div className="form-check d-flex align-items-center gap-3">
-                        <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onChange={ProcAndPlay} defaultChecked />
-                        <label className="form-check-label mb-0" htmlFor="flexRadioDefault1">p1: ON</label>
-                    </div>
-                    <div className="form-check d-flex align-items-center gap-3">
-                        <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" onChange={ProcAndPlay} />
-                        <label className="form-check-label mb-0" htmlFor="flexRadioDefault2">p1: HUSH</label>
-                    </div>
                     {/*Volume*/}
                         <VolumeSlider globalEditor={globalEditor}/>
                     <div>

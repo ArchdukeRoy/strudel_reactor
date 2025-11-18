@@ -1,4 +1,6 @@
 import Drums1Button from './instrumentButtons/drums1Button';
+import Drums2Button from './instrumentButtons/drums2Button';
+import Guitar1Button from './instrumentButtons/guitar1Button';
 
 const InstrumentsDropdown = ({ globalEditor }) => {
     return (
@@ -9,11 +11,11 @@ const InstrumentsDropdown = ({ globalEditor }) => {
                 <div className="accordion accordion-flush" id="accordionFlushExample" onClick={e => e.stopPropagation()}>
                     <div className="accordion-item">
                         <h2 className="accordion-header">
-                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">Piano</button>
+                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">Guitar</button>
                         </h2>
                         <div id="flush-collapseOne" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                             {/*TODO - replace text with buttons to enable different Piano options*/}
-                            <div className="accordion-body">bvhjcvgh</div>
+                            <Guitar1Button />
                         </div>
                     </div>
                     <div className="accordion-item">
@@ -22,6 +24,7 @@ const InstrumentsDropdown = ({ globalEditor }) => {
                         </h2>
                         <div id="flush-collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                             <Drums1Button />
+                            <Drums2Button />
                         </div>
                     </div>
                     <div className="accordion-item">

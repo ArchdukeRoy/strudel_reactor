@@ -14,7 +14,6 @@ import console_monkey_patch, { getD3Data } from './console-monkey-patch';
 //Utils Imports
 import handleD3Data from './utils/buttonLogic/handleD3Data';
 import Proc from './utils/buttonLogic/Proc';
-import ProcAndPlay from './utils/buttonLogic/ProcAndPlay';
 
 //Component Imports
 import NavBar from './components/NavBar/navbar'
@@ -22,6 +21,7 @@ import NavBar from './components/NavBar/navbar'
 import VolumeSlider from './components/audioBar/volumeSlider'
 import InstrumentsDropdown from './components/audioBar/InstrumentsDropdown'
 import BPM from './components/audioBar/BPM'
+import ScopeToggleButton from './components/audioBar/scopeToggle'
 
 import PlayButton from './components/ProcessButtons/PlayButton';
 import StopButton from './components/ProcessButtons/StopButton';
@@ -127,6 +127,7 @@ return (
                     </div>
                     <InstrumentsDropdown/>
                     <BPM globalEditor={globalEditor} />
+                    <ScopeToggleButton globalEditor={globalEditor} />
                 </div>
             </nav>
             <canvas id="roll"></canvas>

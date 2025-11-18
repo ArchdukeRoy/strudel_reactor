@@ -33,12 +33,12 @@ const synthBase1 = (textarea) => {
             //if line found change cpsString value
             exists = true;
             //insert prop as cps
-            return `_synthBase1:`;
+            return (`_synthBase1:`);
         } else if (line.startsWith('_synthBase1:')) {
             //if line found change cpsString value
             exists = true;
             //insert prop as cps
-            return `synthBase1:`;
+            return (`synthBase1:`);
         }
         return line;
     });

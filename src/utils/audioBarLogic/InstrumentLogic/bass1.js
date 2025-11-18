@@ -33,12 +33,12 @@ const bass1 = (textarea) => {
             //if line found change cpsString value
             exists = true;
             //insert prop as cps
-            return `_bass1:`;
+            return (`_bass1:`);
         } else if (line.startsWith('_bass1:')) {
             //if line found change cpsString value
             exists = true;
             //insert prop as cps
-            return `bass1:`;
+            return (`bass1:`);
         }
         return line;
     });

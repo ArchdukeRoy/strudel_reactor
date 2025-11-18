@@ -15,7 +15,7 @@ const updateCpsValue = (cpsValue) => {
                 //if line found change cpsString value
                 cpsString = true;
                 //insert prop as cps
-                return `setcps(${cpsValue}/60/4)`;
+                return (`setcps(${cpsValue}/60/4)`);
             } return line;
         });
 

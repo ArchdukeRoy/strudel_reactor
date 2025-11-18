@@ -34,12 +34,12 @@ const guitar2 = (textarea) => {
             //if line found change cpsString value
             exists = true;
             //insert prop as cps
-            return `_guitar1:`;
+            return (`_guitar1:`);
         } else if (line.startsWith('_guitar2:')) {
             //if line found change cpsString value
             exists = true;
             //insert prop as cps
-            return `guitar2:`;
+            return (`guitar2:`);
         }
         return line;
     });

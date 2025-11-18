@@ -38,12 +38,12 @@ const piano1 = (textarea) => {
             //if line found change cpsString value
             exists = true;
             //insert prop as cps
-            return `_piano1:`;
+            return (`_piano1:`);
         } else if (line.startsWith('_piano1:')) {
             //if line found change cpsString value
             exists = true;
             //insert prop as cps
-            return `piano1:`;
+            return (`piano1:`);
         }
         return line;
     });

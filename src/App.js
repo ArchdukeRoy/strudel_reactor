@@ -22,6 +22,7 @@ import VolumeSlider from './components/audioBar/volumeSlider'
 import InstrumentsDropdown from './components/audioBar/InstrumentsDropdown'
 import BPM from './components/audioBar/BPM'
 import ScopeToggleButton from './components/audioBar/scopeToggle'
+import ReverbSlider from './components/audioBar/reverbSlider';
 
 import PlayButton from './components/ProcessButtons/PlayButton';
 import StopButton from './components/ProcessButtons/StopButton';
@@ -119,17 +120,19 @@ return (
                     </div>
                 </div>
             </div>
-            <br></br>
-            <nav className="navbar" style={{ backgroundColor: '#f0f0f0' }}>
+            <div style={{ height: '10px', backgroundColor: '#333333' }}></div>
+            <nav className="navbar" style={{ backgroundColor: '#ffffff' }}>
                 <div className="container-fluid d-flex align-items-center gap-3 flex-wrap justify-content-start">
-                    <VolumeSlider globalEditor={globalEditor}/>
+                    <VolumeSlider globalEditor={globalEditor} />
+                    <ReverbSlider globalEditor={globalEditor} />
                     <div>
                     </div>
-                    <InstrumentsDropdown/>
                     <BPM globalEditor={globalEditor} />
                     <ScopeToggleButton globalEditor={globalEditor} />
+                    <InstrumentsDropdown />
                 </div>
             </nav>
+            <div style={{ height: '10px', backgroundColor: '#333333' }}></div>
             <canvas id="roll"></canvas>
         </main >
     </div >

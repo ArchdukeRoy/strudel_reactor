@@ -10,7 +10,7 @@ const scopeToggle = (textarea) => {
         if (line.startsWith('//._scope()')) {
             return ('._scope()');
         } else if (line.startsWith('._scope()')) {
-            return '//._scope()';
+            return ('//._scope()');
         }
         return line;
     });

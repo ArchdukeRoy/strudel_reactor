@@ -1,23 +1,23 @@
-import drums1 from '../../../utils/audioBarLogic/InstrumentLogic/drum1';
+import piano1 from '../../../utils/audioBarLogic/InstrumentLogic/piano1';
 
-const Drums1Button = ({ }) => {
+const Piano1Button = ({ }) => {
     return (
         //boostrap accordian + check button format
         <div className="accordion-body">
             <div className="input-group mb-1">
                 <div className="input-group-text">
-                    <input className="form-check-input mt-0" type="checkbox" id="drums1Toggle" aria-label="Checkbox for Drums 1"
-                    //call logic for specific instrument
+                    <input className="form-check-input mt-0" type="checkbox" id="drums1Toggle" aria-label="Checkbox for Drums 2"
+                        //call logic for specific instrument
                         onChange={(e) => {
                             const textarea = document.getElementById('proc');
-                            drums1(textarea);
+                            piano1(textarea);
                         }}
                     />
                 </div>
-                <span className="input-group-text">Drum set 1</span>
+                <span className="input-group-text">Drums set 2</span>
             </div>
         </div>
 
     )
 }
-export default Drums1Button
+export default Piano1Button

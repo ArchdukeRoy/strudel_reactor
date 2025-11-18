@@ -6,9 +6,7 @@ const ProcessButton = ({ globalEditor }) => {
         <button className="btn btn-outline-secondary" onClick={
             //The code from original App.js inserted here:
             () => {
-                if (globalEditor != null) {
                     ProcAndPlay(globalEditor)
-                }
             }
         }>
             Proc & Play

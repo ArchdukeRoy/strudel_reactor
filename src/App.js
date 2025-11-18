@@ -27,6 +27,7 @@ import PlayButton from './components/ProcessButtons/PlayButton';
 import StopButton from './components/ProcessButtons/StopButton';
 import ProcessButton from './components/ProcessButtons/ProcessButton';
 import ProcAndPlayButton from './components/ProcessButtons/ProcAndPlayButton';
+import ClearButton from './components/ProcessButtons/ClearButton';
 
 //global variable changed in favour of useState so that setupButtons are redundant and can be removed
 //let globalEditor = null;
@@ -36,9 +37,6 @@ export default function StrudelDemo() {
     const hasRun = useRef(false);
     //initialise useState variable
     const [globalEditor, setEditor] = useState(null);
-
-    //sets default volume
-    const [volume, setVolume] = useState(1);
 
 useEffect(() => {
 
@@ -98,6 +96,7 @@ return (
                             <nav className="d-flex gap-1">
                                 <ProcessButton globalEditor={globalEditor} />
                                 <ProcAndPlayButton globalEditor={globalEditor} />
+                                <ClearButton globalEditor={globalEditor} />
                                 <PlayButton globalEditor={globalEditor} />
                                 <StopButton globalEditor={globalEditor} />
                             </nav>
@@ -123,13 +122,10 @@ return (
             <br></br>
             <nav className="navbar" style={{ backgroundColor: '#f0f0f0' }}>
                 <div className="container-fluid d-flex align-items-center gap-3 flex-wrap justify-content-start">
-                    {/*Volume*/}
-                        <VolumeSlider globalEditor={globalEditor}/>
+                    <VolumeSlider globalEditor={globalEditor}/>
                     <div>
                     </div>
-                    {/*Instruments*/}
                     <InstrumentsDropdown/>
-                    {/*BPM control*/}
                     <BPM globalEditor={globalEditor} />
                 </div>
             </nav>

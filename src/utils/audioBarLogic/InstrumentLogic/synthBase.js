@@ -1,6 +1,6 @@
 import fixTextArea from "../../fixTextarea";
 
-const drums1 = (textarea) => {
+const synthBase1 = (textarea) => {
     if (!textarea) return;
 
     //var if string needs to be added or not
@@ -9,12 +9,9 @@ const drums1 = (textarea) => {
     //the code for the sounds
     const d1String = [
         "",
-        "drums1:",
-        "sound(`",
-        "[bd bd - -] [bd bd bd bd],",
-        "[bd:1 bd:2 bd:3 bd:4] [hh:5 hh:5 hh:7 hh:7]",
-        "`).bank(\"RolandTR909\").room(.2)",
-        ".ply(\"<0 0 1 1>\")",
+        "synthBase1:",
+        "sound(\"bd*2,<pink pink pink brown*2>*8\")",
+        ".decay(.04).sustain(0)",
         '//._scope()'
     ];
 
@@ -32,16 +29,16 @@ const drums1 = (textarea) => {
 
     //loop over to see which line drums1:
     const newLines = lines.map(line => {
-        if (line.startsWith('drums1:')) {
+        if (line.startsWith('synthBase1:')) {
             //if line found change cpsString value
             exists = true;
             //insert prop as cps
-            return `_drums1:`;
-        } else if (line.startsWith('_drums1:')) {
+            return `_synthBase1:`;
+        } else if (line.startsWith('_synthBase1:')) {
             //if line found change cpsString value
             exists = true;
             //insert prop as cps
-            return `drums1:`;
+            return `synthBase1:`;
         }
         return line;
     });
@@ -57,4 +54,4 @@ const drums1 = (textarea) => {
     fixTextArea(textarea)
 }
 
-export default drums1
+export default synthBase1

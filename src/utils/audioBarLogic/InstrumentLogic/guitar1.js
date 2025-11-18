@@ -1,6 +1,6 @@
-const guitar1 = (textarea) => {
-    if (!textarea) return;
+import fixTextArea from "../../fixTextarea";
 
+const guitar1 = (textarea) => {
     //var if string needs to be added or not
     let exists = false;
 
@@ -10,8 +10,19 @@ const guitar1 = (textarea) => {
         'guitar1:',
         'note("<[e2, b2, e3] [g2, b2, d3] [a2, e3, a3] [b2, f#3, b3] [e2, b2] [c3, g3] [g2, d3] [d3, a3]>")',
         '.s(\'gm_acoustic_guitar_nylon\').fast(8)',
-        '//_scope()'
+        '.ply("<1 1 1 1 >")',
+        '//._scope()'
     ];
+
+    //if empty put in the whole block
+    if (!textarea) {
+        let empt = []
+        empt.push(...g1String);
+        textarea.value = empt.join('\n');
+        fixTextArea(textarea)
+        return;
+    }
+
     //break process string into lines so can read 
     const lines = textarea.value.split('\n');
 
@@ -39,6 +50,7 @@ const guitar1 = (textarea) => {
 
     //put it back to 1 string then feed into preprocess area
     textarea.value = newLines.join('\n');
+    fixTextArea(textarea)
 }
 
 export default guitar1

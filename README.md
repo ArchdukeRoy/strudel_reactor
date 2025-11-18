@@ -13,6 +13,9 @@ BPM Controller - Int user input to enter specied beats per minute
 Sounds Dropdown + Accordian - Select instruments which adds sounds of instruments I have created.
 Sound Visualiser Button - Toggles ._scope() to instruments if they have it to add in built sound visualiser
 
+## VIDEO
+https://youtu.be/OCbyn5ZfEkc
+
 ## SONG
 I created this song using 2 4 chord progressions for instrument. So 8 beats per instrument all synced up with each other.
 A combination of instruments commonly used in a band, as well as double up instruments playing different tunes to help the sound not feel flat.
